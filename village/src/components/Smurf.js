@@ -1,6 +1,11 @@
 import React from "react";
 
 const Smurf = props => {
+  const handleClick = e => {
+    console.log(props.id);
+    props.deleteSmurf(props.id);
+  };
+
   return (
     <div className="Smurf card hoverable">
       <div className="card-content">
@@ -11,7 +16,12 @@ const Smurf = props => {
         </div>
         <div>
           <i className="small blue-text material-icons">edit</i>
-          <i className="small red-text text-lighten-1 material-icons">delete</i>
+          <i
+            onClick={handleClick}
+            className="small red-text text-lighten-1 material-icons"
+          >
+            delete
+          </i>
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ class SmurfForm extends Component {
       .post("http://localhost:3333/smurfs", payload)
       .then(res => {
         this.props.updateSmurfs(res.data);
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
 
@@ -43,7 +44,7 @@ class SmurfForm extends Component {
         <h4>Add a Smurf to the Village</h4>
         <form onSubmit={this.addSmurf}>
           <div className="row">
-            <label for="input_name">Name</label>
+            <label htmlFor="input_name">Name</label>
             <input
               id="input_name"
               type="text"
@@ -54,7 +55,7 @@ class SmurfForm extends Component {
             />
           </div>
           <div className="row">
-            <label for="input_age">Age</label>
+            <label htmlFor="input_age">Age</label>
             <input
               id="input_age"
               type="number"
@@ -65,7 +66,7 @@ class SmurfForm extends Component {
             />
           </div>
           <div className="row">
-            <label for="input_height">Height</label>
+            <label htmlFor="input_height">Height</label>
             <input
               id="input_height"
               type="text"
