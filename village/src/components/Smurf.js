@@ -10,8 +10,10 @@ class Smurf extends Component {
   };
 
   componentDidMount() {
+    // Set State to props passed in or pull data from server to grab individual smurf by id and pass to state for the edit form
     const { name, age, height, id } = this.props;
 
+    // Check if on the Smurf route and set state from the server if so
     if (this.props.match) {
       axios
         .get("http://localhost:3333/smurfs")
@@ -28,6 +30,7 @@ class Smurf extends Component {
         })
         .catch(err => console.log(err));
     } else {
+      // else set state from the props passed in from the Smurfs component
       this.setState({
         name,
         age,
@@ -52,6 +55,7 @@ class Smurf extends Component {
       .catch(err => console.log(err));
   };
 
+  // These methods only accessible from individual Smurf route
   deleteSmurf = e => {
     const id = this.state.id;
 
@@ -67,6 +71,7 @@ class Smurf extends Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  // --------------------------------------------->
 
   render() {
     return (
@@ -78,6 +83,7 @@ class Smurf extends Component {
             <p>{this.state.age} smurf years old</p>
           </div>
           <div>
+            {/* conditionally render delete button */}
             {this.props.match && (
               <i
                 onClick={this.deleteSmurf}
@@ -89,6 +95,7 @@ class Smurf extends Component {
           </div>
         </div>
 
+        {/* conditionally render edit form */}
         {this.props.match && (
           <div className="EditSmurfForm">
             <h5>Edit Smurf</h5>
