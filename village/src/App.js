@@ -7,6 +7,7 @@ import M from "materialize-css";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor(props) {
@@ -67,6 +68,12 @@ class App extends Component {
                 smurfs={this.state.smurfs}
                 updateSmurfs={this.updateSmurfs}
               />
+            )}
+          />
+          <Route
+            path="/smurfs/:id"
+            render={props => (
+              <Smurf {...props} updateSmurfs={this.updateSmurfs} />
             )}
           />
         </div>
