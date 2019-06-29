@@ -2,7 +2,7 @@ import React from "react";
 
 const Smurf = props => {
   return (
-    <div className="Smurf card">
+    <div className="Smurf card hoverable">
       <div className="card-content">
         <span className="card-title">{props.name}</span>
         <strong>{props.height} tall</strong>
