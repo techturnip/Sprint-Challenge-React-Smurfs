@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import "materialize-css/dist/css/materialize.min.css";
@@ -38,26 +39,30 @@ class App extends Component {
       <div className="App">
         <nav className="container blue">
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo">
-              Logo
-            </a>
+            <NavLink to="/" className="brand-logo">
+              React Smurfs
+            </NavLink>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <a href="sass.html">Sass</a>
-              </li>
-              <li>
-                <a href="badges.html">Components</a>
-              </li>
-              <li>
-                <a href="collapsible.html">JavaScript</a>
+                <NavLink to="/add">Add Smurf</NavLink>
               </li>
             </ul>
           </div>
         </nav>
 
         <div className="container">
-          <SmurfForm updateSmurfs={this.updateSmurfs} />
-          <Smurfs smurfs={this.state.smurfs} />
+          <Route
+            exact
+            path="/add"
+            render={props => (
+              <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          />
         </div>
       </div>
     );
