@@ -1,3 +1,19 @@
-.App {
-  text-align: center;
+.App nav.container {
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.Smurf .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Smurf .card-content div>i {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.Smurf .EditSmurfForm {
+  padding: 1rem;
 }
